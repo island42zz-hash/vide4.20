@@ -32,7 +32,7 @@
     </style>
 
     <!-- Image Performance Optimization -->
-    <link rel="preload" as="image" href="imagine_images/4Gtbp.jpg">
+    <link rel="preload" as="image" href="imagine_images/dutch_kush_vip.jpg" fetchpriority="high">
 
 <!-- Using direct referral links for simplicity -->
     <style>
@@ -447,6 +447,21 @@
                         </div>
                         <i class="fa-solid fa-copy text-[#4ADE80]"></i>
                     </div>
+
+                    <!-- TON Wallet -->
+                    <div onclick="showTONWallet()" 
+                         class="flex items-center justify-between px-3 py-3 bg-[#0A1F0A] hover:bg-[#166534] active:bg-[#052E16] rounded-xl cursor-pointer transition-all">
+                        <div class="flex items-center gap-x-3">
+                            <div class="w-9 h-9 bg-[#229ED9] rounded-xl flex items-center justify-center">
+                                <i class="fa-brands fa-telegram text-white"></i>
+                            </div>
+                            <div>
+                                <div class="font-medium">Ví TON (Gram)</div>
+                                <div class="text-xs text-[#86EFAC]/60">Nhận USDT + Gram trực tiếp</div>
+                            </div>
+                        </div>
+                        <i class="fa-solid fa-copy text-[#4ADE80]"></i>
+                    </div>
                 </div>
 
                 <!-- Invoice Generator -->
@@ -576,7 +591,7 @@
             <!-- Kush Hà Lan VIP -->
             <div class="bg-[#112B11] border border-[#166534] rounded-3xl overflow-hidden">
                 <div class="h-44 relative">
-                    <img src="imagine_images/dutch_kush_vip.jpg" class="w-full h-full object-cover" alt="Kush Hà Lan VIP">
+                    <img src="imagine_images/dutch_kush_vip.jpg" class="w-full h-full object-cover" alt="Kush Hà Lan VIP" loading="lazy" decoding="async">
                     <div class="absolute top-3 right-3 px-3 py-1 bg-black/60 rounded-full text-xs font-bold text-white">VIP</div>
                 </div>
                 <div class="p-4">
@@ -602,7 +617,7 @@
             <!-- Kush Thái Lan -->
             <div class="bg-[#112B11] border border-[#166534] rounded-3xl overflow-hidden">
                 <div class="h-44 relative">
-                    <img src="imagine_images/thai_kush_jar.jpg" class="w-full h-full object-cover" alt="Kush Thái Lan">
+                    <img src="imagine_images/thai_kush_jar.jpg" class="w-full h-full object-cover" alt="Kush Thái Lan" loading="lazy" decoding="async">
                     <div class="absolute top-3 right-3 px-3 py-1 bg-black/60 rounded-full text-xs font-bold text-white">NGON</div>
                 </div>
                 <div class="p-4">
@@ -1189,7 +1204,7 @@
             }
         }
 
-        // Simple Payment Invoice Generator
+        // Online Payment Invoice Generator
         function createPaymentInvoice() {
             const amountInput = document.getElementById('invoice-amount');
             const networkSelect = document.getElementById('invoice-network');
@@ -1198,44 +1213,52 @@
             const network = networkSelect.value;
             
             if (!amount || amount <= 0) {
-                showToast('Vui lòng nhập số tiền hợp lệ');
+                showToast('Vui lòng nhập số tiền USDT hợp lệ');
                 return;
             }
             
-            // Create a nice invoice modal
             const modalHTML = `
                 <div id="invoice-modal" onclick="closeInvoiceModal()" class="fixed inset-0 z-[110] bg-black/90 flex items-end lg:items-center justify-center">
                     <div onclick="event.stopImmediatePropagation()" class="w-full max-w-md lg:mx-auto lg:my-8 lg:rounded-3xl rounded-t-3xl bg-[#0A1F0A] border border-[#166534] p-5">
-                        <div class="flex justify-between items-center mb-4">
-                            <div class="font-bold text-lg">Hóa đơn thanh toán</div>
-                            <button onclick="closeInvoiceModal()" class="text-[#86EFAC] text-2xl leading-none">&times;</button>
-                        </div>
-                        
-                        <div class="bg-[#112B11] rounded-2xl p-4 mb-4">
-                            <div class="flex justify-between text-sm mb-1">
-                                <span class="text-[#86EFAC]">Số tiền</span>
-                                <span class="font-bold text-xl">${amount} <span class="text-sm">USDT</span></span>
+                        <div class="flex justify-between items-center mb-3">
+                            <div>
+                                <div class="font-bold text-xl">Thanh toán Online</div>
+                                <div class="text-xs text-[#86EFAC]">USDT • ${network}</div>
                             </div>
-                            <div class="flex justify-between text-sm">
-                                <span class="text-[#86EFAC]">Mạng</span>
-                                <span class="font-medium">${network}</span>
-                            </div>
+                            <button onclick="closeInvoiceModal()" class="text-3xl text-[#86EFAC] leading-none">&times;</button>
                         </div>
                         
-                        <div class="text-xs text-[#86EFAC]/60 mb-4 px-1">
-                            Vui lòng chuyển chính xác số tiền trên để được xác nhận tự động.
+                        <div class="bg-[#112B11] rounded-2xl p-4 mb-4 text-center">
+                            <div class="text-xs text-[#86EFAC] mb-1">SỐ TIỀN CẦN THANH TOÁN</div>
+                            <div class="text-4xl font-black text-[#4ADE80]">${amount} <span class="text-xl">USDT</span></div>
                         </div>
                         
-                        <div class="grid grid-cols-2 gap-3">
+                        <div class="text-xs text-[#86EFAC]/70 mb-4 px-1 leading-relaxed">
+                            Sau khi thanh toán thành công, đơn hàng sẽ được xử lý tự động. 
+                            Vui lòng giữ lại giao dịch để đối chiếu.
+                        </div>
+                        
+                        <div class="grid grid-cols-1 gap-2">
                             <button onclick="payWithTelegramWallet(${amount}, '${network}')" 
-                                    class="py-3 bg-[#229ED9] hover:bg-[#1a7bb8] transition-colors text-white font-bold rounded-2xl text-sm flex items-center justify-center gap-x-2">
-                                <i class="fa-brands fa-telegram"></i>
-                                <span>Telegram Wallet</span>
+                                    class="w-full py-3.5 bg-[#229ED9] hover:bg-[#1a7bb8] transition-all text-white font-bold rounded-2xl text-sm flex items-center justify-center gap-x-2">
+                                <i class="fa-brands fa-telegram text-lg"></i>
+                                <span>Thanh toán bằng Telegram Wallet</span>
+                            </button>
+                            
+                            <button onclick="payWithTONWallet(${amount}, '${network}')" 
+                                    class="w-full py-3.5 bg-[#4ADE80] hover:bg-[#86EFAC] transition-all text-[#052E16] font-bold rounded-2xl text-sm flex items-center justify-center gap-x-2">
+                                <i class="fa-brands fa-telegram text-lg"></i>
+                                <span>Thanh toán bằng Ví TON (Gram)</span>
                             </button>
                             
                             <button onclick="payWithOKX(${amount}, '${network}')" 
-                                    class="py-3 bg-black border border-white/30 hover:bg-zinc-900 transition-colors text-white font-bold rounded-2xl text-sm flex items-center justify-center gap-x-2">
-                                <span>OKX</span>
+                                    class="w-full py-3.5 bg-black border border-white/30 hover:bg-zinc-900 transition-all text-white font-bold rounded-2xl text-sm flex items-center justify-center gap-x-2">
+                                <span>Thanh toán bằng OKX</span>
+                            </button>
+                            
+                            <button onclick="payWithBEP20(${amount}, '${network}')" 
+                                    class="w-full py-3.5 bg-yellow-500 hover:bg-yellow-600 transition-all text-black font-bold rounded-2xl text-sm flex items-center justify-center gap-x-2">
+                                <span>Thanh toán bằng Ví BEP20</span>
                             </button>
                         </div>
                     </div>
@@ -1377,6 +1400,22 @@
             }, 500);
         }
         
+        function payWithBEP20(amount, network) {
+            closeInvoiceModal();
+            showToast('Đang mở thông tin ví BEP20...');
+            setTimeout(() => {
+                showBEP20Wallet();
+            }, 400);
+        }
+        
+        function payWithTONWallet(amount, network) {
+            closeInvoiceModal();
+            showToast('Đang mở ví TON...');
+            setTimeout(() => {
+                showTONWallet();
+            }, 400);
+        }
+        
         function payWithBEP20ForShop(total) {
             closeInvoiceModal();
             setTimeout(() => {
@@ -1429,6 +1468,54 @@
         
         function closeBEP20Modal() {
             const modal = document.getElementById('bep20-modal');
+            if (modal) modal.remove();
+        }
+
+        // ==================== TON WALLET ====================
+        function showTONWallet() {
+            const modalHTML = `
+                <div id="ton-modal" onclick="closeTONModal()" class="fixed inset-0 z-[110] bg-black/90 flex items-end lg:items-center justify-center">
+                    <div onclick="event.stopImmediatePropagation()" class="w-full max-w-md lg:mx-auto lg:my-8 lg:rounded-3xl rounded-t-3xl bg-[#0A1F0A] border border-[#166534] p-5">
+                        <div class="flex justify-between items-center mb-4">
+                            <div>
+                                <div class="font-bold text-lg">Ví TON (Gram)</div>
+                                <div class="text-xs text-[#86EFAC]">Nhận USDT + Gram trực tiếp</div>
+                            </div>
+                            <button onclick="closeTONModal()" class="text-2xl text-[#86EFAC]">&times;</button>
+                        </div>
+                        
+                        <div class="bg-[#112B11] rounded-2xl p-4 mb-4">
+                            <div class="text-xs text-[#86EFAC] mb-1">Địa chỉ ví TON</div>
+                            <div class="font-mono text-sm break-all text-white mb-3">${TON_WALLET}</div>
+                            
+                            <button onclick="copyTONAddress()" 
+                                    class="w-full py-3 bg-[#4ADE80] hover:bg-[#86EFAC] active:bg-white transition-colors text-[#052E16] font-bold rounded-2xl text-sm flex items-center justify-center gap-x-2">
+                                <i class="fa-solid fa-copy"></i>
+                                <span>Copy địa chỉ ví TON</span>
+                            </button>
+                        </div>
+                        
+                        <div class="text-xs text-[#86EFAC]/70 px-1">
+                            • Hỗ trợ <strong>USDT trên TON</strong> và <strong>Gram</strong><br>
+                            • Gửi đúng số tiền để được xác nhận nhanh<br>
+                            • An toàn &amp; bảo mật
+                        </div>
+                    </div>
+                </div>
+            `;
+            document.body.insertAdjacentHTML('beforeend', modalHTML);
+        }
+        
+        function copyTONAddress() {
+            navigator.clipboard.writeText(TON_WALLET).then(() => {
+                showToast('Đã copy địa chỉ ví TON!');
+            }).catch(() => {
+                showToast('Copy thất bại');
+            });
+        }
+        
+        function closeTONModal() {
+            const modal = document.getElementById('ton-modal');
             if (modal) modal.remove();
         }
         
@@ -1574,6 +1661,7 @@
             initParallax();
             initLanguage();
             initDarkMode();
+            initRealTimeClock();
             
             // Initial renders
             renderCategoryPills();
@@ -1689,9 +1777,9 @@
             const t = translations[lang];
             if (!t) return;
 
-            // Hero
+            // Hero Banner
             const heroText = document.querySelector('#page-feed .text-3xl');
-            if (heroText) heroText.innerHTML = t.hero_title;
+            if (heroText) heroText.innerHTML = t.hero_title || t.hero_title;
 
             // Shop
             const shopTitle = document.querySelector('#page-shop .font-bold.text-2xl');
@@ -1702,7 +1790,7 @@
 
             // Buy buttons
             document.querySelectorAll('#page-shop button').forEach(btn => {
-                if (btn.textContent.includes('Mua') || btn.textContent.includes('Buy')) {
+                if (btn.innerHTML.includes('Mua') || btn.innerHTML.includes('Buy') || btn.innerHTML.includes('지금') || btn.innerHTML.includes('Купить')) {
                     btn.innerHTML = `<i class="fa-solid fa-shopping-cart"></i> <span>${t.buy_now}</span>`;
                 }
             });
@@ -1711,7 +1799,7 @@
             const shippingTitle = document.querySelector('#page-shop .font-bold.text-\\[\\#4ADE80\\]');
             if (shippingTitle) shippingTitle.textContent = t.shipping;
 
-            // Important notes
+            // Important Notes
             const noteTitle = document.querySelector('#page-shop .font-bold.text-red-400');
             if (noteTitle) noteTitle.innerHTML = `<i class="fa-solid fa-exclamation-triangle"></i> <span>${t.important_note}</span>`;
 
@@ -1719,9 +1807,13 @@
             const paymentTitle = document.querySelector('#page-community .font-semibold.mb-3');
             if (paymentTitle) paymentTitle.innerHTML = `<i class="fa-solid fa-wallet text-[#4ADE80]"></i> <span>${t.payment_title}</span>`;
 
-            // Community
+            // Community title
             const communityTitle = document.querySelector('#page-community .font-bold.text-xl');
             if (communityTitle) communityTitle.textContent = t.community_title;
+
+            // Partners section
+            const partnersTitle = document.querySelector('#page-community .text-xs.uppercase');
+            if (partnersTitle) partnersTitle.textContent = t.partners || 'PARTNERS';
         }
 
         function initLanguage() {
@@ -1771,6 +1863,34 @@
                     icon.classList.add('fa-moon');
                 }
             }
+        }
+
+        // ==================== REAL-TIME CLOCK ====================
+        function updateRealTimeClock() {
+            const clockElement = document.getElementById('real-time-clock');
+            if (!clockElement) return;
+
+            const now = new Date();
+            const hours = String(now.getHours()).padStart(2, '0');
+            const minutes = String(now.getMinutes()).padStart(2, '0');
+            const seconds = String(now.getSeconds()).padStart(2, '0');
+            
+            clockElement.textContent = `${hours}:${minutes}:${seconds}`;
+        }
+
+        function initRealTimeClock() {
+            const clockElement = document.getElementById('real-time-clock');
+            if (!clockElement) return;
+
+            // Show clock on mobile too for better UX
+            clockElement.classList.remove('hidden', 'md:flex');
+            clockElement.classList.add('flex');
+
+            // Update immediately
+            updateRealTimeClock();
+
+            // Update every second
+            setInterval(updateRealTimeClock, 1000);
         }
 
         window.onload = initializeApp;
