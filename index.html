@@ -40,7 +40,7 @@
         
         body {
             font-family: 'Inter', system_ui, sans-serif;
-            background-image: url('imagine_images/glowing_leaf.jpg');
+            background-image: url('data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD/4gHYSUNDX1BST0ZJTEUAAQEAAAHIAAAAAAQwAABtbnRyUkdCIFhZWiAH4AABAAEAAAAAAABhY3NwQVBQTAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA9tYAAQAAAADTLQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAlkZXNjAAAA8AAAACRyWFlaAAABFAAAABRnWFlaAAABKAAAABRiWFlaAAABPAAAABR3dHB0AAABUAAAABRyVFJDAAABZAAAAChnVFJDAAABZAAAAChiVFJDAAABZAAAAChjcHJ0AAABjAAAADxtbHVjAAAAAAAAAAEAAAAMZW5VUwAAAAgAAAAcAHMAUgBHAEJYWVogAAAAAAAAb6IAADj1AAADkFhZWiAAAAAAAABimQAAt4UAABjaWFlaIAAAAAAAACSgAAAPhAAAts9YWVogAAAAAAAA9tYAAQAAAADTLXBhcmEAAAAAAAQAAAACZmYAAPKnAAANWQAAE9AAAApbAAAAAAAAAABtbHVjAAAAAAAAAAEAAAAMZW5VUwAAACAAAAAcAEcAbwBvAGcAbABlACAASQBuAGMALgAgADIAMAAxADb/2wBDAAYEBQYFBAYGBQYHBwYIChAKCgkJChQODwwQFxQYGBcUFhYaHSUfGhsjHBYWICwgIyYnKSopGR8tMC0oMCUoKSj/2wBDAQcHBwoIChMKChMoGhYaKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCj/wAARCAf4CPQDASIAAhEBAxEB/8QAHQAAAQUBAQEBAAAAAAAAAAAAAAECAwQFBgcI/8QAPhAAAgEDAwIEBAMFBgUDBQAAAAECAxEABBIhBTFBURMiYXEGFCMyQoGRByNCscHwFVPR4WOi8RYkNHLC/8QAGQEBAQEBAQEAAAAAAAAAAAAAAAECAwQF/8QAIxEAAgICAgIDAQEBAAAAAAAAAAECEQMhEjFBBFFhInGB/9oADAMBAAIRAxEAPwD9');
             background-size: 320px;
             background-position: center;
             background-attachment: fixed;
@@ -192,7 +192,11 @@
                             <span class="font-black text-3xl tracking-tighter text-[#4ADE80]">420</span>
                             <span class="font-display text-lg text-[#86EFAC] tracking-[1px]">DAILY</span>
                         </div>
-                        <div class="text-[9px] text-[#4ADE80]/50 -mt-1 font-mono tracking-[1.5px]">BY ISLAND42ZZ</div>
+                        <a href="https://t.me/Island42zz" target="_blank" 
+                           class="text-[9px] text-[#4ADE80] hover:text-[#86EFAC] -mt-1 font-mono tracking-[1.5px] flex items-center gap-x-1 transition-colors">
+                            <span>BY @ISLAND42ZZ</span>
+                            <i class="fa-brands fa-telegram text-[10px]"></i>
+                        </a>
                     </div>
                 </div>
             </div>
@@ -827,7 +831,7 @@
                 category: "Kinh doanh",
                 source: "Cannabis Business Times",
                 time: "2 ngày trước",
-                image: "imagine_images/golden_leaves.jpg"
+                image: "data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD/4gHYSUNDX1BST0ZJTEUAAQEAAAHIAAAAAAQwAABtbnRyUkdCIFhZWiAH4AABAAEAAAAAAABhY3NwQVBQTAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA9tYAAQAAAADTLQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAlkZXNjAAAA8AAAACRyWFlaAAABFAAAABRnWFlaAAABKAAAABRiWFlaAAABPAAAABR3dHB0AAABUAAAABRyVFJDAAABZAAAAChnVFJDAAABZAAAAChiVFJDAAABZAAAAChjcHJ0AAABjAAAADxtbHVjAAAAAAAAAAEAAAAMZW5VUwAAAAgAAAAcAHMAUgBHAEJYWVogAAAAAAAAb6IAADj1AAADkFhZWiAAAAAAAABimQAAt4UAABjaWFlaIAAAAAAAACSgAAAPhAAAts9YWVogAAAAAAAA9tYAAQAAAADTLXBhcmEAAAAAAAQAAAACZmYAAPKnAAANWQAAE9AAAApbAAAAAAAAAABtbHVjAAAAAAAAAAEAAAAMZW5VUwAAACAAAAAcAEcAbwBvAGcAbABlACAASQBuAGMALgAgADIAMAAxADb/2wBDAAYEBQYFBAYGBQYHBwYIChAKCgkJChQODwwQFxQYGBcUFhYaHSUfGhsjHBYWICwgIyYnKSopGR8tMC0oMCUoKSj/2wBDAQcHBwoIChMKChMoGhYaKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCj/wAARCAf4CPQDASIAAhEBAxEB/8QAHQAAAQUBAQEBAAAAAAAAAAAAAAECAwQFBgcI/8QAPhAAAgEDAwIEBAMFBgUDBQAAAAECAxEABBIhBTFBURMiYXEGFCMyQoGRByNCscHwFVPR4WOi8RYkNHLC/8QAGQEBAQEBAQEAAAAAAAAAAAAAAAECAwQF/8QAIxEAAgICAgIDAQEBAAAAAAAAAAECEQMhEjFBBFFhInGB/9oADAMBAAIRAxEAPwD9"
             },
             {
                 id: 6,
@@ -1659,9 +1663,9 @@
             initTelegram();
             loadBookmarks();
             initParallax();
-            initLanguage();
             initDarkMode();
             initRealTimeClock();
+            initLanguage(); // Language last to apply translations after UI is ready
             
             // Initial renders
             renderCategoryPills();
@@ -1779,23 +1783,24 @@
 
             // Hero Banner
             const heroText = document.querySelector('#page-feed .text-3xl');
-            if (heroText) heroText.innerHTML = t.hero_title || t.hero_title;
+            if (heroText) heroText.innerHTML = t.hero_title;
 
-            // Shop
+            // Shop Title
             const shopTitle = document.querySelector('#page-shop .font-bold.text-2xl');
             if (shopTitle) shopTitle.textContent = t.shop_title;
 
             const shopSubtitle = document.querySelector('#page-shop .text-\\[\\#86EFAC\\].text-sm');
             if (shopSubtitle) shopSubtitle.textContent = t.shop_subtitle;
 
-            // Buy buttons
+            // Buy Now buttons
             document.querySelectorAll('#page-shop button').forEach(btn => {
-                if (btn.innerHTML.includes('Mua') || btn.innerHTML.includes('Buy') || btn.innerHTML.includes('지금') || btn.innerHTML.includes('Купить')) {
+                const html = btn.innerHTML;
+                if (html.includes('Mua') || html.includes('Buy') || html.includes('지금') || html.includes('Купить') || html.includes('지금 구매')) {
                     btn.innerHTML = `<i class="fa-solid fa-shopping-cart"></i> <span>${t.buy_now}</span>`;
                 }
             });
 
-            // Shipping
+            // Shipping Banner
             const shippingTitle = document.querySelector('#page-shop .font-bold.text-\\[\\#4ADE80\\]');
             if (shippingTitle) shippingTitle.textContent = t.shipping;
 
@@ -1803,17 +1808,17 @@
             const noteTitle = document.querySelector('#page-shop .font-bold.text-red-400');
             if (noteTitle) noteTitle.innerHTML = `<i class="fa-solid fa-exclamation-triangle"></i> <span>${t.important_note}</span>`;
 
-            // Payment title
+            // Payment section
             const paymentTitle = document.querySelector('#page-community .font-semibold.mb-3');
             if (paymentTitle) paymentTitle.innerHTML = `<i class="fa-solid fa-wallet text-[#4ADE80]"></i> <span>${t.payment_title}</span>`;
 
-            // Community title
+            // Community
             const communityTitle = document.querySelector('#page-community .font-bold.text-xl');
             if (communityTitle) communityTitle.textContent = t.community_title;
 
             // Partners section
-            const partnersTitle = document.querySelector('#page-community .text-xs.uppercase');
-            if (partnersTitle) partnersTitle.textContent = t.partners || 'PARTNERS';
+            const partnersSection = document.querySelector('#page-community .text-xs.uppercase.tracking-widest');
+            if (partnersSection) partnersSection.textContent = t.partners || 'PARTNERS';
         }
 
         function initLanguage() {
@@ -1882,9 +1887,8 @@
             const clockElement = document.getElementById('real-time-clock');
             if (!clockElement) return;
 
-            // Show clock on mobile too for better UX
-            clockElement.classList.remove('hidden', 'md:flex');
-            clockElement.classList.add('flex');
+            // Always show the clock
+            clockElement.style.display = 'flex';
 
             // Update immediately
             updateRealTimeClock();
