@@ -202,6 +202,12 @@
             </div>
 
             <div class="flex items-center gap-x-2">
+                <!-- Real-time Clock -->
+                <div id="real-time-clock" 
+                     class="px-2.5 py-1 bg-[#112B11] rounded-xl text-[11px] border border-[#166534] font-mono text-[#4ADE80] tracking-wider">
+                    --:--:--
+                </div>
+
                 <!-- Language Switcher with Flags -->
                 <div class="lang-switcher">
                     <div onclick="switchLanguage('en')" class="lang-btn active" id="lang-en">
@@ -218,9 +224,9 @@
                     </div>
                 </div>
 
-                <!-- User greeting -->
+                <!-- User greeting + Auth status -->
                 <div id="user-greeting" class="hidden items-center gap-x-2 px-3 py-1 bg-[#112B11] rounded-2xl text-xs border border-[#166534]">
-                    <i class="fa-solid fa-user text-[#4ADE80]"></i>
+                    <i class="fa-solid fa-shield-halved text-[#4ADE80]"></i>
                     <span id="user-name" class="font-medium text-[#86EFAC]"></span>
                 </div>
 
@@ -417,9 +423,12 @@
 
             <!-- Payment Methods + Invoice Generator -->
             <div class="bg-[#112B11] border border-[#166534] rounded-2xl p-4">
-                <div class="font-semibold mb-3 flex items-center gap-x-2">
+                <div class="font-semibold mb-2 flex items-center gap-x-2">
                     <i class="fa-solid fa-wallet text-[#4ADE80]"></i>
                     <span>Thanh toán USDT</span>
+                </div>
+                <div id="usdt-vnd-rate" class="text-xs text-[#86EFAC]/70 mb-3 px-1">
+                    Đang tải tỉ giá USDT/VND...
                 </div>
 
                 <!-- Quick Payment Links -->
@@ -930,19 +939,35 @@
                 tg.setBackgroundColor('#0A1F0A');
                 tg.setHeaderColor('#0A1F0A');
                 
+                // Kiểm tra xác thực token / initData
+                const hasInitData = !!(tg.initData && tg.initData.length > 0);
                 const user = tg.initDataUnsafe && tg.initDataUnsafe.user;
+                
                 if (user) {
                     const greetingEl = document.getElementById('user-greeting');
                     const nameEl = document.getElementById('user-name');
                     const profileName = document.getElementById('profile-name');
                     const profileUsername = document.getElementById('profile-username');
                     
-                    greetingEl.style.display = 'flex';
-                    nameEl.textContent = user.first_name || 'bạn';
+                    if (greetingEl) {
+                        greetingEl.style.display = 'flex';
+                        // Hiển thị trạng thái xác thực
+                        const authIcon = greetingEl.querySelector('i');
+                        if (authIcon) {
+                            authIcon.className = hasInitData 
+                                ? 'fa-solid fa-shield-halved text-[#4ADE80]' 
+                                : 'fa-solid fa-user text-yellow-400';
+                        }
+                    }
+                    if (nameEl) {
+                        nameEl.textContent = user.first_name || 'User';
+                        nameEl.title = hasInitData ? 'Đã xác thực qua Telegram' : 'Chưa xác thực đầy đủ';
+                    }
                     
                     if (profileName) profileName.textContent = user.first_name || 'High Vibes User';
                     if (profileUsername && user.username) profileUsername.textContent = '@' + user.username;
                 }
+                
                 tg.ready();
             }
         }
@@ -1251,8 +1276,24 @@
         }
 
         function openExternalLink(url) {
-            if (tg && tg.openLink) {
-                tg.openLink(url);
+            // Bảo mật liên kết Telegram
+            // - Link t.me / telegram.me → openTelegramLink (chuẩn & an toàn hơn)
+            // - Link ngoài (whalehub...) → openLink
+            
+            if (!url) return;
+            
+            const isTelegramLink = url.includes('t.me/') || 
+                                   url.includes('telegram.me/') || 
+                                   url.includes('telegram.org/');
+            
+            if (tg) {
+                if (isTelegramLink && typeof tg.openTelegramLink === 'function') {
+                    tg.openTelegramLink(url);
+                } else if (typeof tg.openLink === 'function') {
+                    tg.openLink(url);
+                } else {
+                    window.open(url, '_blank');
+                }
             } else {
                 window.open(url, '_blank');
             }
@@ -1715,6 +1756,7 @@
             initParallax();
             initDarkMode();
             initRealTimeClock();
+            initUsdtVndRate();
             initLanguage(); // Language last to apply translations after UI is ready
             
             // Initial renders
@@ -1937,14 +1979,42 @@
             const clockElement = document.getElementById('real-time-clock');
             if (!clockElement) return;
 
-            // Always show the clock
             clockElement.style.display = 'flex';
-
-            // Update immediately
             updateRealTimeClock();
-
-            // Update every second
             setInterval(updateRealTimeClock, 1000);
+        }
+
+        // ==================== TỈ GIÁ USDT / VND ====================
+        let currentUsdtVnd = null;
+
+        async function fetchUsdtVndRate() {
+            try {
+                // Binance public API (USDT/VND không có trực tiếp, dùng USDT/USD + approximate)
+                // Dùng CoinGecko free API
+                const res = await fetch('https://api.coingecko.com/api/v3/simple/price?ids=tether&vs_currencies=vnd');
+                const data = await res.json();
+                if (data && data.tether && data.tether.vnd) {
+                    currentUsdtVnd = Math.round(data.tether.vnd);
+                    updateRateDisplay();
+                }
+            } catch (e) {
+                // Fallback rate nếu API lỗi
+                currentUsdtVnd = 25400;
+                updateRateDisplay();
+            }
+        }
+
+        function updateRateDisplay() {
+            const el = document.getElementById('usdt-vnd-rate');
+            if (el && currentUsdtVnd) {
+                el.innerHTML = `1 USDT ≈ <strong class="text-[#4ADE80]">${currentUsdtVnd.toLocaleString('vi-VN')}</strong> VND`;
+            }
+        }
+
+        function initUsdtVndRate() {
+            fetchUsdtVndRate();
+            // Cập nhật mỗi 5 phút
+            setInterval(fetchUsdtVndRate, 5 * 60 * 1000);
         }
 
         window.onload = initializeApp;
