@@ -1,87 +1,82 @@
-# 420 Daily • island42zz
+# 420 Daily
 
-**Telegram Mini App** dành cho cộng đồng 420 — tin tức, cộng đồng, mua bán và thanh toán crypto.
+**Mini App tin tức & cộng đồng 420** — vận hành bởi [@Island42zz](https://t.me/Island42zz)
 
-## ✨ Tính năng chính
+Giao diện tối ưu cho Telegram Mini App. Tập trung tin tức, menu sản phẩm, thanh toán crypto và kết nối cộng đồng.
 
-- **Tin tức 420** cập nhật nhanh, giao diện đẹp
-- **4 ngôn ngữ**: English 🇬🇧 | Русский 🇷🇺 | 한국어 🇰🇷 | Tiếng Việt 🇻🇳
-- **Dark / Light Mode** chuyển đổi mượt mà
-- **Shop Kush** (Hà Lan VIP + Thái Lan) + thanh toán Crypto
-- **Hỗ trợ Whale.io** đồng hành World Cup 2026
-- **Hướng dẫn thanh toán USDT** (Telegram Wallet, OKX, BEP20)
-- **Giao hàng nhanh**: Hoả tốc Hà Nội - TP.HCM, Đà Nẵng & các tỉnh 2-3 ngày
-- **Parallax Hero Banner** + hiệu ứng mượt
-- **Tối ưu hiệu suất** ảnh (lazy loading + preload)
+---
 
-## 🚀 Cách sử dụng
+## Tính năng
 
-### Cách 1: Chạy nhanh trên máy tính
-1. Tải file `index.html`
-2. Mở bằng trình duyệt (Chrome, Firefox, Edge...)
+| Phần | Mô tả |
+|------|--------|
+| **Feed** | Tin tức 420 cập nhật (pháp lý, văn hóa, kinh doanh, khoa học) |
+| **Shop** | Menu Kush Vip Hà Lan, Top Cali, Menu Oil |
+| **Community** | WhaleHub + cộng đồng xanh419plus |
+| **Thanh toán** | USDT (TON / BEP20 / TRC20) — không COD |
+| **Đa ngôn ngữ** | EN · RU · KO · VI |
+| **Hỗ trợ** | Bot Q/A tích hợp sẵn trong app |
+| **Tiện ích** | Đồng hồ realtime, tỉ giá USDT/VND, Dark/Light mode |
 
-### Cách 2: Deploy lên GitHub Pages (khuyến nghị)
-1. Tạo repository mới trên GitHub
-2. Upload file `index.html` + thư mục `imagine_images`
-3. Vào **Settings → Pages** → Source: `Deploy from a branch` → `main`
-4. Truy cập link: `https://yourusername.github.io/reponame`
+---
 
-### Cách 3: 1 file duy nhất (không cần folder)
-- Sử dụng phiên bản đã embed Base64 (file nặng hơn ~5-7MB)
-- Chỉ cần upload đúng 1 file `index.html`
+## Menu hiện tại
 
-## 📁 Cấu trúc thư mục
+- **Kush Vip Hà Lan** — 2.6 triệu / hoa  
+- **Top Cali** — 3.0 triệu / hoa  
+- **Menu Oil** — liên hệ [@Island42zz](https://t.me/Island42zz)
+
+Giao hàng: Hoả tốc Hà Nội – TP.HCM · Đà Nẵng & tỉnh lân cận (2–3 ngày làm việc)
+
+---
+
+## Deploy nhanh
+
+**Cách đơn giản nhất (1 file):**
+
+1. Upload `index.html` lên GitHub Pages / Vercel / Netlify  
+2. Bật Pages → lấy link  
+3. Dùng link đó làm Telegram Mini App
+
+**Cấu trúc khuyến nghị:**
 
 ```
-420-daily-island42zz/
-├── index.html              # File chính (Mini App)
-├── imagine_images/         # Ảnh & video chất lượng cao
-│   ├── dutch_kush_vip.jpg
-│   ├── thai_kush_jar.jpg
-│   ├── snoop_dogg_luxury.jpg
-│   ├── glowing_leaf.jpg
-│   └── ...
+your-repo/
+├── index.html
 └── README.md
 ```
 
-## 💳 Thanh toán Crypto
+---
 
-- Telegram Wallet (Gram)
-- Sàn OKX (link ref)
-- Ví USDT BEP20 trực tiếp
-- Tạo hóa đơn nhanh trong app
+## Liên kết quan trọng
 
-## 🌍 Hỗ trợ ngôn ngữ
-
-- English (mặc định)
-- Русский (Russian)
-- 한국어 (Korean)
-- Tiếng Việt
-
-Mỗi ngôn ngữ có biểu tượng cờ riêng.
-
-## 🎨 Giao diện
-
-- Theme 420 chuyên nghiệp (xanh lá + đen + vàng)
-- Dark Mode & Light Mode mượt mà
-- Responsive trên mobile & Telegram Mini App
-
-## 📌 Lưu ý
-
-- Đây là **Mini App** chạy tốt nhất trong Telegram
-- Có thể deploy lên GitHub Pages, Vercel, hoặc Netlify
-- Phiên bản embed Base64 phù hợp khi muốn chỉ upload 1 file
-
-## 📞 Liên hệ & Hỗ trợ
-
-- Group: [@island42zz](https://t.me/+TGObAgSmc5IyMTE1)
-- Whale.io (World Cup 2026): [whale.io](https://whale.io/?start=d54906495e21f5f8)
+| Mục đích | Link |
+|----------|------|
+| Chủ hub | [t.me/Island42zz](https://t.me/Island42zz) |
+| Cộng đồng xanh419plus | [t.me/+GpK8sXrdoaozY2Vl](https://t.me/+GpK8sXrdoaozY2Vl) |
+| WhaleHub (World Cup 2026) | [whalehub.pro](http://whalehub.pro/?start=d54906495e21f5f8) |
 
 ---
 
-**Made with ❤️ for the 420 community**  
-© 2026 island42zz
+## Thanh toán
+
+- Telegram Wallet  
+- OKX  
+- Ví TON (Gram)  
+- Ví USDT BEP20  
+
+Chỉ nhận crypto. Không COD. Đơn xử lý sau khi thanh toán thành công.
 
 ---
 
-Nếu cần chỉnh sửa README hoặc thêm tính năng, cứ nói nhé! 🌿
+## Ghi chú kỹ thuật
+
+- Pure HTML + Tailwind (CDN) + Vanilla JS  
+- Không cần backend để chạy  
+- Tối ưu mobile + Telegram WebApp API  
+- SEO meta + Open Graph đã cấu hình  
+
+---
+
+**island42zz** · 2026  
+Stay informed. Stay lifted.

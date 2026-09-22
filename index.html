@@ -3,7 +3,19 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-    <title>420 Daily • island42zz</title>
+    <title>420 Daily — Tin tức & Cộng đồng 420 | island42zz</title>
+    <meta name="description" content="420 Daily bởi @Island42zz — tin tức 420, menu Kush Vip Hà Lan & Top Cali, thanh toán crypto, cộng đồng xanh419plus. Mini App trên Telegram.">
+    <meta name="keywords" content="420, kush, island42zz, tin tức cần sa, telegram mini app, usdt, xanh419plus, top cali">
+    <meta name="author" content="@Island42zz">
+    <meta name="theme-color" content="#0A1F0A">
+    <meta name="robots" content="index, follow">
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="420 Daily — island42zz">
+    <meta property="og:description" content="Tin tức 420, menu sản phẩm, thanh toán crypto & cộng đồng. Vận hành bởi @Island42zz.">
+    <meta property="og:site_name" content="420 Daily">
+    <meta property="og:locale" content="vi_VN">
+    <meta name="twitter:card" content="summary">
+    <meta name="twitter:title" content="420 Daily — island42zz">
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
 
@@ -40,14 +52,50 @@
         
         body {
             font-family: 'Inter', system_ui, sans-serif;
-            background-image: url('data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD/4gHYSUNDX1BST0ZJTEUAAQEAAAHIAAAAAAQwAABtbnRyUkdCIFhZWiAH4AABAAEAAAAAAABhY3NwQVBQTAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA9tYAAQAAAADTLQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAlkZXNjAAAA8AAAACRyWFlaAAABFAAAABRnWFlaAAABKAAAABRiWFlaAAABPAAAABR3dHB0AAABUAAAABRyVFJDAAABZAAAAChnVFJDAAABZAAAAChiVFJDAAABZAAAAChjcHJ0AAABjAAAADxtbHVjAAAAAAAAAAEAAAAMZW5VUwAAAAgAAAAcAHMAUgBHAEJYWVogAAAAAAAAb6IAADj1AAADkFhZWiAAAAAAAABimQAAt4UAABjaWFlaIAAAAAAAACSgAAAPhAAAts9YWVogAAAAAAAA9tYAAQAAAADTLXBhcmEAAAAAAAQAAAACZmYAAPKnAAANWQAAE9AAAApbAAAAAAAAAABtbHVjAAAAAAAAAAEAAAAMZW5VUwAAACAAAAAcAEcAbwBvAGcAbABlACAASQBuAGMALgAgADIAMAAxADb/2wBDAAYEBQYFBAYGBQYHBwYIChAKCgkJChQODwwQFxQYGBcUFhYaHSUfGhsjHBYWICwgIyYnKSopGR8tMC0oMCUoKSj/2wBDAQcHBwoIChMKChMoGhYaKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCj/wAARCAf4CPQDASIAAhEBAxEB/8QAHQAAAQUBAQEBAAAAAAAAAAAAAAECAwQFBgcI/8QAPhAAAgEDAwIEBAMFBgUDBQAAAAECAxEABBIhBTFBURMiYXEGFCMyQoGRByNCscHwFVPR4WOi8RYkNHLC/8QAGQEBAQEBAQEAAAAAAAAAAAAAAAECAwQF/8QAIxEAAgICAgIDAQEBAAAAAAAAAAECEQMhEjFBBFFhInGB/9oADAMBAAIRAxEAPwD9');
-            background-size: 320px;
-            background-position: center;
-            background-attachment: fixed;
-            background-repeat: repeat;
-            background-blend-mode: screen;
-            background-color: #0F1A0F;
-            opacity: 0.92;
+            background-color: #0A1F0A;
+            position: relative;
+            overflow-x: hidden;
+        }
+
+        /* 3D Animated Background */
+        .bg-3d {
+            position: fixed;
+            inset: 0;
+            z-index: -1;
+            overflow: hidden;
+            background: radial-gradient(ellipse at 20% 50%, #0f2a0f 0%, #0A1F0A 50%, #051405 100%);
+        }
+        .bg-3d .orb {
+            position: absolute;
+            border-radius: 50%;
+            filter: blur(60px);
+            opacity: 0.35;
+            animation: floatOrb 18s ease-in-out infinite;
+        }
+        .bg-3d .orb1 {
+            width: 320px; height: 320px;
+            background: #166534;
+            top: -80px; left: -80px;
+            animation-delay: 0s;
+        }
+        .bg-3d .orb2 {
+            width: 260px; height: 260px;
+            background: #4ADE80;
+            bottom: 10%; right: -60px;
+            animation-delay: -6s;
+            opacity: 0.2;
+        }
+        .bg-3d .orb3 {
+            width: 200px; height: 200px;
+            background: #854d0e;
+            top: 40%; left: 30%;
+            animation-delay: -12s;
+            opacity: 0.15;
+        }
+        @keyframes floatOrb {
+            0%, 100% { transform: translate(0, 0) scale(1); }
+            33% { transform: translate(40px, -30px) scale(1.08); }
+            66% { transform: translate(-30px, 20px) scale(0.95); }
         }
 
         /* Light Mode + Smooth Transition + Main Colors (Red, Yellow, Green) */
@@ -94,15 +142,20 @@
         }
 
         .news-card {
-            transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
-            background-color: #112B11;
-            border: 1px solid #166534;
+            transition: transform 0.35s cubic-bezier(0.22, 1, 0.36, 1), border-color 0.25s ease, box-shadow 0.35s ease;
+            background: linear-gradient(165deg, #132f13 0%, #0e230e 100%);
+            border: 1px solid rgba(22, 101, 52, 0.55);
         }
         
         .news-card:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 20px 25px -5px rgb(0 0 0 / 0.1), 0 8px 10px -6px rgb(0 0 0 / 0.1);
-            border-color: #4ADE80;
+            transform: translateY(-3px);
+            box-shadow: 0 18px 40px rgba(0, 0, 0, 0.4), 0 0 0 1px rgba(74, 222, 128, 0.15);
+            border-color: rgba(74, 222, 128, 0.4);
+        }
+
+        body {
+            -webkit-font-smoothing: antialiased;
+            text-rendering: optimizeLegibility;
         }
 
         .category-pill {
@@ -179,13 +232,29 @@
     </style>
 </head>
 <body class="bg-[#0A1F0A] text-[#E0F0E0] overflow-x-hidden pb-20">
+    <!-- 3D Animated Background -->
+    <div class="bg-3d" aria-hidden="true">
+        <div class="orb orb1"></div>
+        <div class="orb orb2"></div>
+        <div class="orb orb3"></div>
+    </div>
+
     <!-- Header -->
     <header class="sticky top-0 z-50 miniapp-header border-b border-[#166534]">
         <div class="max-w-2xl mx-auto px-4 py-3 flex items-center justify-between">
             <div class="flex items-center gap-x-3">
                 <div class="flex items-center gap-x-2.5">
-                    <div class="w-10 h-10 bg-gradient-to-br from-[#4ADE80] to-[#166534] rounded-2xl flex items-center justify-center shadow-inner">
-                        <i class="fa-solid fa-leaf text-[#052E16] text-3xl"></i>
+                    <!-- Custom Logo SVG - 420 Daily island42zz -->
+                    <div class="w-11 h-11 rounded-2xl bg-[#0A1F0A] border border-[#166534] flex items-center justify-center overflow-hidden shadow-lg">
+                        <svg viewBox="0 0 64 64" class="w-9 h-9" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <!-- Geometric cannabis leaf -->
+                            <path d="M32 8 L36 22 L48 14 L40 26 L54 28 L40 32 L52 42 L38 36 L42 50 L32 40 L22 50 L26 36 L12 42 L24 32 L10 28 L24 26 L16 14 L28 22 Z" 
+                                  stroke="#4ADE80" stroke-width="1.6" stroke-linejoin="round" fill="rgba(74,222,128,0.08)"/>
+                            <!-- Center stem with 420 feel -->
+                            <line x1="32" y1="40" x2="32" y2="56" stroke="#4ADE80" stroke-width="1.8" stroke-linecap="round"/>
+                            <circle cx="32" cy="32" r="5.5" fill="#0A1F0A" stroke="#4ADE80" stroke-width="1.4"/>
+                            <text x="32" y="35" text-anchor="middle" fill="#4ADE80" font-size="6" font-weight="700" font-family="system-ui,sans-serif">420</text>
+                        </svg>
                     </div>
                     <div>
                         <div class="flex items-baseline gap-x-1">
@@ -208,9 +277,12 @@
                     --:--:--
                 </div>
 
-                <!-- Language Switcher with Flags -->
+                <!-- Language Switcher: VI chính · EN / RU / KO phụ -->
                 <div class="lang-switcher">
-                    <div onclick="switchLanguage('en')" class="lang-btn active" id="lang-en">
+                    <div onclick="switchLanguage('vi')" class="lang-btn active" id="lang-vi">
+                        <span class="flag">🇻🇳</span> <span>VI</span>
+                    </div>
+                    <div onclick="switchLanguage('en')" class="lang-btn" id="lang-en">
                         <span class="flag">🇬🇧</span> <span>EN</span>
                     </div>
                     <div onclick="switchLanguage('ru')" class="lang-btn" id="lang-ru">
@@ -218,9 +290,6 @@
                     </div>
                     <div onclick="switchLanguage('ko')" class="lang-btn" id="lang-ko">
                         <span class="flag">🇰🇷</span> <span>KO</span>
-                    </div>
-                    <div onclick="switchLanguage('vi')" class="lang-btn" id="lang-vi">
-                        <span class="flag">🇻🇳</span> <span>VI</span>
                     </div>
                 </div>
 
@@ -1103,9 +1172,26 @@
                 
                 const isSaved = isBookmarked(news.id);
                 
+                const catColors = {
+                    'Pháp lý': 'from-[#1e3a5f] to-[#0A1F0A]',
+                    'Văn hóa': 'from-[#4c1d95] to-[#0A1F0A]',
+                    'Kinh doanh': 'from-[#166534] to-[#0A1F0A]',
+                    'Khoa học': 'from-[#0e7490] to-[#0A1F0A]'
+                };
+                const catIcons = {
+                    'Pháp lý': 'fa-scale-balanced',
+                    'Văn hóa': 'fa-music',
+                    'Kinh doanh': 'fa-chart-line',
+                    'Khoa học': 'fa-flask'
+                };
+                const gradient = catColors[news.category] || 'from-[#166534] to-[#0A1F0A]';
+                const icon = catIcons[news.category] || 'fa-leaf';
+
                 card.innerHTML = `
                     <div class="relative">
-                        <img src="${news.image}" class="news-image w-full h-48 object-cover" alt="${news.title}" loading="lazy" decoding="async">
+                        <div class="news-image w-full h-40 bg-gradient-to-br ${gradient} flex items-center justify-center">
+                            <i class="fa-solid ${icon} text-5xl text-[#4ADE80]/40"></i>
+                        </div>
                         <div class="absolute top-3 left-3">
                             <span class="px-3 py-1 text-[10px] font-bold tracking-wider rounded-xl bg-black/70 text-[#4ADE80] backdrop-blur-md">
                                 ${news.category}
@@ -1853,7 +1939,7 @@
             }
         };
 
-        let currentLang = 'en'; // English as default
+        let currentLang = 'vi'; // Tiếng Việt là ngôn ngữ chính
 
         function switchLanguage(lang) {
             currentLang = lang;
@@ -1914,7 +2000,12 @@
         }
 
         function initLanguage() {
-            const savedLang = localStorage.getItem('island42zz_lang') || 'en'; // Default to English
+            // Tiếng Việt là ngôn ngữ chính; EN / RU / KO là phụ
+            let savedLang = localStorage.getItem('island42zz_lang');
+            if (!savedLang || !['vi', 'en', 'ru', 'ko'].includes(savedLang)) {
+                savedLang = 'vi';
+                localStorage.setItem('island42zz_lang', 'vi');
+            }
             switchLanguage(savedLang);
         }
             
@@ -2022,6 +2113,106 @@
         // Global helpers
         window.switchToFeed = () => switchPage('feed');
         window.open420Article = (id) => openArticle(id);
+
+        // ==================== SMART SUPPORT BOT ====================
+        const botQA = [
+            { q: ['thanh toán', 'payment', 'crypto', 'usdt', 'ví'], a: 'Chúng tôi chỉ nhận thanh toán Crypto (USDT trên TON / BEP20 / TRC20). Không COD. Sau khi thanh toán, đơn sẽ được xử lý tự động.' },
+            { q: ['giá', 'price', 'bao nhiêu', 'kush', 'cali'], a: 'Menu hiện tại:\n• Kush Vip Hà Lan — 2.6 triệu/hoa\n• Top Cali — 3.0 triệu/hoa\n• Menu Oil — liên hệ @island42zz' },
+            { q: ['giao hàng', 'ship', 'vận chuyển', 'hỏa tốc'], a: 'Hoả tốc Hà Nội - TP.HCM • Đà Nẵng & các tỉnh lân cận trong 2-3 ngày làm việc. Chỉ giao sau khi thanh toán Crypto thành công.' },
+            { q: ['cộng đồng', 'group', 'tham gia', 'xanh'], a: 'Tham gia cộng đồng xanh419plus tại: https://t.me/+GpK8sXrdoaozY2Vl' },
+            { q: ['liên hệ', 'contact', 'admin', 'hỗ trợ'], a: 'Liên hệ trực tiếp chủ hub: @Island42zz (https://t.me/Island42zz)' },
+            { q: ['whale', 'world cup'], a: 'WhaleHub đồng hành World Cup 2026: http://whalehub.pro/?start=d54906495e21f5f8' },
+            { q: ['xin chào', 'hello', 'hi', 'chào'], a: 'Xin chào! Mình là bot hỗ trợ 420 Daily. Bạn có thể hỏi về giá, thanh toán, giao hàng, cộng đồng...' }
+        ];
+
+        function toggleBot() {
+            const panel = document.getElementById('bot-panel');
+            panel.classList.toggle('hidden');
+            if (!panel.classList.contains('hidden')) {
+                document.getElementById('bot-input').focus();
+            }
+        }
+
+        function botReply(text) {
+            const lower = text.toLowerCase();
+            let answer = 'Xin lỗi, mình chưa hiểu rõ. Bạn có thể hỏi về: giá sản phẩm, thanh toán crypto, giao hàng, cộng đồng hoặc liên hệ admin.';
+            for (const item of botQA) {
+                if (item.q.some(kw => lower.includes(kw))) {
+                    answer = item.a;
+                    break;
+                }
+            }
+            return answer;
+        }
+
+        function sendBotMessage() {
+            const input = document.getElementById('bot-input');
+            const text = input.value.trim();
+            if (!text) return;
+            
+            const messages = document.getElementById('bot-messages');
+            
+            // User message
+            messages.innerHTML += `
+                <div class="flex justify-end mb-2">
+                    <div class="bg-[#166534] text-white text-sm px-3 py-2 rounded-2xl rounded-br-md max-w-[80%]">${text}</div>
+                </div>`;
+            
+            input.value = '';
+            
+            // Bot reply
+            setTimeout(() => {
+                const reply = botReply(text);
+                messages.innerHTML += `
+                    <div class="flex justify-start mb-2">
+                        <div class="bg-[#112B11] border border-[#166534] text-[#E0F0E0] text-sm px-3 py-2 rounded-2xl rounded-bl-md max-w-[85%] whitespace-pre-line">${reply}</div>
+                    </div>`;
+                messages.scrollTop = messages.scrollHeight;
+            }, 400);
+            
+            messages.scrollTop = messages.scrollHeight;
+        }
     </script>
+
+    <!-- Smart Support Bot Widget -->
+    <div class="fixed bottom-24 right-4 z-[100]">
+        <!-- Chat Panel -->
+        <div id="bot-panel" class="hidden mb-3 w-[300px] max-w-[calc(100vw-2rem)] bg-[#0A1F0A] border border-[#166534] rounded-3xl shadow-2xl overflow-hidden">
+            <div class="bg-gradient-to-r from-[#166534] to-[#0A1F0A] px-4 py-3 flex items-center justify-between">
+                <div class="flex items-center gap-x-2">
+                    <div class="w-8 h-8 bg-[#4ADE80] rounded-full flex items-center justify-center">
+                        <i class="fa-solid fa-robot text-[#052E16] text-sm"></i>
+                    </div>
+                    <div>
+                        <div class="font-bold text-sm text-white">420 Support Bot</div>
+                        <div class="text-[10px] text-[#86EFAC]">Online • @island42zz</div>
+                    </div>
+                </div>
+                <button onclick="toggleBot()" class="text-[#86EFAC] hover:text-white text-xl leading-none">&times;</button>
+            </div>
+            <div id="bot-messages" class="h-64 overflow-y-auto p-3 space-y-1">
+                <div class="flex justify-start mb-2">
+                    <div class="bg-[#112B11] border border-[#166534] text-[#E0F0E0] text-sm px-3 py-2 rounded-2xl rounded-bl-md max-w-[85%]">
+                        Xin chào! 🌿 Mình có thể hỗ trợ về giá, thanh toán, giao hàng, cộng đồng...
+                    </div>
+                </div>
+            </div>
+            <div class="p-3 border-t border-[#166534] flex gap-2">
+                <input id="bot-input" type="text" placeholder="Hỏi gì đó..." 
+                       class="flex-1 bg-[#112B11] border border-[#166534] rounded-xl px-3 py-2 text-sm outline-none focus:border-[#4ADE80] text-white"
+                       onkeydown="if(event.key==='Enter') sendBotMessage()">
+                <button onclick="sendBotMessage()" 
+                        class="w-10 h-10 bg-[#4ADE80] rounded-xl flex items-center justify-center text-[#052E16]">
+                    <i class="fa-solid fa-paper-plane text-sm"></i>
+                </button>
+            </div>
+        </div>
+        
+        <!-- Floating Button -->
+        <button onclick="toggleBot()" 
+                class="w-14 h-14 bg-gradient-to-br from-[#4ADE80] to-[#166534] rounded-full shadow-lg flex items-center justify-center text-[#052E16] hover:scale-105 active:scale-95 transition-transform">
+            <i class="fa-solid fa-robot text-xl"></i>
+        </button>
+    </div>
 </body>
 </html>
