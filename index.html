@@ -43,8 +43,7 @@
         }
     </style>
 
-    <!-- Image Performance Optimization -->
-    <link rel="preload" as="image" href="imagine_images/dutch_kush_vip.jpg" fetchpriority="high">
+    <!-- No external image preload — self-contained design -->
 
 <!-- Using direct referral links for simplicity -->
     <style>
@@ -316,16 +315,14 @@
             </div>
         </div>
 
-        <!-- Hero Banner with Parallax -->
+        <!-- Hero Banner -->
         <div class="px-4 pb-4">
-            <div class="group relative rounded-3xl overflow-hidden border border-[#166534] h-48 md:h-56 transition-all duration-500 hover:border-[#4ADE80]/60 hover:shadow-2xl">
-                <div id="parallax-hero" class="absolute inset-0 bg-cover bg-center transition-transform duration-75" 
-                     style="background-image: url('imagine_images/dutch_kush_vip.jpg'); will-change: transform;">
-                </div>
-                <div class="absolute inset-0 bg-gradient-to-b from-black/30 via-black/40 to-black/60 transition-opacity group-hover:opacity-80"></div>
-                <div class="absolute bottom-0 left-0 p-5">
-                    <div class="text-xs uppercase tracking-[2px] text-[#4ADE80] font-mono mb-1">ISLAND42ZZ PRESENTS</div>
-                    <div class="text-3xl font-bold tracking-tighter text-white">Stay informed.<br>Stay lifted.</div>
+            <div class="group relative rounded-3xl overflow-hidden border border-[#166534]/80 h-44 md:h-52 transition-all duration-500 hover:border-[#4ADE80]/50">
+                <div id="parallax-hero" class="absolute inset-0 bg-gradient-to-br from-[#0f2a0f] via-[#0A1F0A] to-[#052e16]" style="will-change: transform;"></div>
+                <div class="absolute inset-0 opacity-30" style="background: radial-gradient(circle at 70% 30%, rgba(74,222,128,0.25), transparent 55%);"></div>
+                <div class="absolute bottom-0 left-0 right-0 p-5">
+                    <div class="text-[10px] uppercase tracking-[2.5px] text-[#4ADE80]/90 font-mono mb-1.5">Island42zz presents</div>
+                    <div class="text-[28px] leading-[1.15] font-semibold tracking-tight text-white">Stay informed.<br>Stay lifted.</div>
                 </div>
             </div>
         </div>
@@ -391,48 +388,36 @@
         </div>
 
         <div class="px-4 pb-3">
-            <h2 class="section-header text-[#86EFAC] mb-3">Island42zz Picks</h2>
+            <h2 class="section-header text-[#86EFAC] mb-3">Island42zz chọn lọc</h2>
             
             <div class="space-y-3">
-                <div onclick="openArticle(3)" class="flex gap-3 bg-[#112B11] border border-[#166534] rounded-2xl p-3 active:bg-[#166534]/70 cursor-pointer">
-                    <div class="w-16 h-16 rounded-xl overflow-hidden flex-shrink-0">
-                        <img src="imagine_images/0K6qB.jpg" class="w-full h-full object-cover" loading="lazy" decoding="async">
+                <div onclick="openArticle(3)" class="flex gap-3 bg-[#112B11] border border-[#166534]/70 rounded-2xl p-3 active:bg-[#166534]/40 cursor-pointer transition-colors">
+                    <div class="w-14 h-14 rounded-xl flex-shrink-0 bg-gradient-to-br from-sky-900 to-[#0A1F0A] flex items-center justify-center">
+                        <i class="fa-solid fa-flask text-sky-300 text-lg"></i>
                     </div>
                     <div class="flex-1 min-w-0">
-                        <div class="text-xs text-sky-300 font-medium mb-0.5">KHOA HỌC</div>
-                        <div class="font-medium text-sm leading-tight line-clamp-2">Microdosing THC giúp tăng khả năng sáng tạo và tập trung</div>
+                        <div class="text-[10px] text-sky-300/90 font-semibold tracking-wide mb-0.5">KHOA HỌC</div>
+                        <div class="font-medium text-sm leading-snug text-white/95">Microdosing THC giúp tăng khả năng sáng tạo và tập trung</div>
                     </div>
                 </div>
                 
-                <div onclick="openArticle(8)" class="flex gap-3 bg-[#112B11] border border-[#166534] rounded-2xl p-3 active:bg-[#166534]/70 cursor-pointer">
-                    <div class="w-16 h-16 rounded-xl overflow-hidden flex-shrink-0">
-                        <img src="imagine_images/CC16B.jpg" class="w-full h-full object-cover" loading="lazy" decoding="async">
+                <div onclick="openArticle(8)" class="flex gap-3 bg-[#112B11] border border-[#166534]/70 rounded-2xl p-3 active:bg-[#166534]/40 cursor-pointer transition-colors">
+                    <div class="w-14 h-14 rounded-xl flex-shrink-0 bg-gradient-to-br from-violet-900 to-[#0A1F0A] flex items-center justify-center">
+                        <i class="fa-solid fa-moon text-violet-300 text-lg"></i>
                     </div>
                     <div class="flex-1 min-w-0">
-                        <div class="text-xs text-sky-300 font-medium mb-0.5">KHOA HỌC</div>
-                        <div class="font-medium text-sm leading-tight line-clamp-2">CBD giúp giảm triệu chứng mất ngủ mãn tính lên đến 65%</div>
+                        <div class="text-[10px] text-violet-300/90 font-semibold tracking-wide mb-0.5">KHOA HỌC</div>
+                        <div class="font-medium text-sm leading-snug text-white/95">CBD giúp giảm triệu chứng mất ngủ mãn tính lên đến 65%</div>
                     </div>
-                </div>
-            </div>
-        </div>
-
-        <!-- New Discover Visuals -->
-        <div class="px-4 pt-2 pb-6">
-            <div class="grid grid-cols-1 gap-3">
-                <div class="rounded-2xl overflow-hidden border border-[#166534]">
-                    <img src="imagine_images/ZalcB.jpg" class="w-full h-auto" alt="This Week in 420" loading="lazy" decoding="async">
-                </div>
-                <div class="rounded-2xl overflow-hidden border border-[#166534]">
-                    <img src="imagine_images/ZOOp5.jpg" class="w-full h-auto" alt="420 Elements Collage" loading="lazy" decoding="async">
                 </div>
             </div>
         </div>
 
         <div class="px-4 pt-2 pb-8">
-            <div class="bg-[#112B11] border border-[#166534] rounded-2xl p-4 text-center">
-                <div class="text-[#4ADE80] mb-1"><i class="fa-solid fa-lightbulb text-xl"></i></div>
-                <div class="font-semibold text-sm">Bạn muốn thấy chủ đề gì?</div>
-                <div class="text-xs text-[#86EFAC]/60 mt-1">Góp ý cho island42zz để thêm nội dung mới</div>
+            <div class="bg-[#112B11] border border-[#166534]/60 rounded-2xl p-4 text-center">
+                <div class="text-[#4ADE80] mb-1.5"><i class="fa-solid fa-lightbulb text-lg"></i></div>
+                <div class="font-medium text-sm">Bạn muốn thấy chủ đề gì?</div>
+                <div class="text-xs text-[#86EFAC]/55 mt-1">Góp ý trực tiếp cho @Island42zz</div>
             </div>
         </div>
     </div>
@@ -440,17 +425,16 @@
     <!-- ==================== COMMUNITY PAGE ==================== -->
     <div id="page-community" class="page max-w-2xl mx-auto hidden">
         <div class="px-4 pt-6">
-            <div class="relative rounded-3xl overflow-hidden border border-[#4ADE80]/30 h-48">
-                <img src="imagine_images/dutch_kush_premium.jpg" alt="island42zz Community" class="w-full h-full object-cover" loading="lazy" decoding="async">
-                <div class="absolute inset-0 bg-gradient-to-b from-black/40 to-black/70"></div>
+            <div class="relative rounded-3xl overflow-hidden border border-[#4ADE80]/25 h-44 bg-gradient-to-br from-[#122e12] to-[#0A1F0A]">
+                <div class="absolute inset-0 opacity-40" style="background: radial-gradient(circle at 80% 20%, rgba(74,222,128,0.3), transparent 50%);"></div>
                 <div class="absolute bottom-0 left-0 p-5 w-full">
-                    <div class="font-bold text-xl tracking-tight text-white">Cộng đồng @island42zz</div>
-                    <div class="text-[#86EFAC] text-sm">Nơi chill • Chia sẻ vibe 420 • Поддержка на русском</div>
+                    <div class="font-semibold text-xl tracking-tight text-white">Cộng đồng @Island42zz</div>
+                    <div class="text-[#86EFAC]/80 text-sm mt-0.5">Chill · chia sẻ vibe 420 · hỗ trợ RU</div>
                     
                     <button onclick="joinIsland42zzGroup()" 
-                            class="mt-3 px-6 py-2.5 bg-[#4ADE80] hover:bg-[#86EFAC] active:bg-white transition-all text-[#052E16] font-bold rounded-2xl text-sm flex items-center gap-x-2">
+                            class="mt-3 px-5 py-2.5 bg-[#4ADE80] hover:bg-[#86EFAC] active:scale-[0.98] transition-all text-[#052E16] font-semibold rounded-xl text-sm flex items-center gap-x-2">
                         <i class="fa-solid fa-users"></i>
-                        <span>Tham gia Group ngay</span>
+                        <span>Tham gia group</span>
                     </button>
                 </div>
             </div>
@@ -621,13 +605,13 @@
     <div id="page-profile" class="page max-w-2xl mx-auto hidden">
         <div class="px-4 pt-6">
             <div class="flex items-center gap-x-4">
-                <div class="w-16 h-16 rounded-2xl overflow-hidden border border-[#4ADE80]/40">
-                    <img src="imagine_images/snoop_dogg_luxury.jpg" alt="island42zz Avatar" class="w-full h-full object-cover" loading="lazy" decoding="async">
+                <div class="w-16 h-16 rounded-2xl border border-[#4ADE80]/35 bg-gradient-to-br from-[#166534] to-[#0A1F0A] flex items-center justify-center">
+                    <svg viewBox="0 0 64 64" class="w-10 h-10" fill="none"><path d="M32 8 L36 22 L48 14 L40 26 L54 28 L40 32 L52 42 L38 36 L42 50 L32 40 L22 50 L26 36 L12 42 L24 32 L10 28 L24 26 L16 14 L28 22 Z" stroke="#4ADE80" stroke-width="1.8" stroke-linejoin="round" fill="rgba(74,222,128,0.1)"/><line x1="32" y1="40" x2="32" y2="56" stroke="#4ADE80" stroke-width="2" stroke-linecap="round"/></svg>
                 </div>
                 <div>
-                    <div id="profile-name" class="font-bold text-xl">High Vibes User</div>
+                    <div id="profile-name" class="font-semibold text-xl tracking-tight">High Vibes User</div>
                     <div id="profile-username" class="text-[#86EFAC]/70 text-sm">@island42zz</div>
-                    <div class="text-xs text-[#4ADE80] mt-0.5">Thành viên từ 2026 • Level 4 Stoner</div>
+                    <div class="text-xs text-[#4ADE80]/90 mt-0.5">Thành viên · 2026</div>
                 </div>
             </div>
         </div>
@@ -669,16 +653,12 @@
             </div>
         </div>
 
-        <!-- Video Showcase -->
-        <div class="px-4 pt-2 pb-4">
-            <div class="relative rounded-3xl overflow-hidden border border-[#166534]">
-                <video autoplay muted loop playsinline class="w-full h-auto max-h-[320px] object-cover">
-                    <source src="imagine_images/dutch_kush_video.mp4" type="video/mp4">
-                </video>
-                <div class="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/70 to-transparent p-4">
-                    <div class="text-white font-bold">Kush Vip Hà Lan • 2.6 triệu</div>
-                    <div class="text-[#4ADE80] text-sm">Nguồn gốc chọn lọc • Chất lượng cao cấp</div>
-                </div>
+        <!-- Shop intro -->
+        <div class="px-4 pt-2 pb-3">
+            <div class="relative rounded-2xl overflow-hidden border border-[#166534]/70 bg-gradient-to-r from-[#122e12] to-[#0A1F0A] p-4">
+                <div class="text-[10px] uppercase tracking-[2px] text-[#4ADE80]/80 font-mono mb-1">Menu hôm nay</div>
+                <div class="text-white font-semibold">Kush Vip · Top Cali · Menu Oil</div>
+                <div class="text-[#86EFAC]/70 text-sm mt-0.5">Crypto only · Giao 2–3 ngày</div>
             </div>
         </div>
 
@@ -2071,8 +2051,15 @@
             if (!clockElement) return;
 
             clockElement.style.display = 'flex';
-            updateRealTimeClock();
-            setInterval(updateRealTimeClock, 1000);
+            const tick = () => {
+                const now = new Date();
+                const h = String(now.getHours()).padStart(2, '0');
+                const m = String(now.getMinutes()).padStart(2, '0');
+                const s = String(now.getSeconds()).padStart(2, '0');
+                clockElement.textContent = h + ':' + m + ':' + s;
+            };
+            tick();
+            setInterval(tick, 1000);
         }
 
         // ==================== TỈ GIÁ USDT / VND ====================
